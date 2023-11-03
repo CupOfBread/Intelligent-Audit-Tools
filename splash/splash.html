@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loading</title>
+</head>
+<body style="height: 100%;width: 100%;margin: 0;padding: 0;">
+  <div style="height: 100%;width: 100%;background-color: rgb(252, 255, 250);position: absolute;display: flex;justify-content: center;align-items: center;border-radius: 5px;overflow: hidden;">
+    <p style="text-align: center;font-size: 1.8em;font-weight: 800;">Intelligent Audit Tools</p>
+  </div>
+  <div style="position: absolute;right: 30px;bottom: 16px;z-index: 100;">
+    Ver.0.2
+  </div>
+  <script>
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+    });
+
+    document.addEventListener('mousedown', function(e){
+      if (e.button === 0 || e.button === 1) {
+        e.preventDefault();
+      }
+});
+  </script>
+</body>
+</html>
