@@ -47,6 +47,9 @@
         "timestampUrl": "",
         "wix":{
           "language": "zh-CN"
+        },
+        "nsis":{
+          "languages": ["SimpChinese","English"]
         }
       }
     },
@@ -64,7 +67,9 @@
         "resizable": true,
         "title": "Intelligent Audit Tools",
         "visible": false,
-        "center": true
+        "alwaysOnTop": true,
+        "y": 16,
+        "x": 16
       },
       {
         "fullscreen": false,

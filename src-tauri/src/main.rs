@@ -14,6 +14,11 @@ fn main() {
       let _splashscreen_window: tauri::Window = app.get_window("splashscreen").unwrap();
       let _main_window: tauri::Window = app.get_window("main").unwrap();
 
+      #[cfg(debug_assertions)]
+      {
+        _main_window.open_devtools();
+      }
+
       tauri::async_runtime::spawn(async move {
         println!("Initializing...");
         set_shadow(&_splashscreen_window, true).unwrap();
@@ -21,7 +26,10 @@ fn main() {
         println!("Done initializing.");
         _splashscreen_window.close().unwrap();
         _main_window.show().unwrap();
-      });
+        _main_window.set_always_on_top(false).unwrap();
+      }
+
+    );
       Ok(())
     }
   )
@@ -30,7 +38,7 @@ fn main() {
         tauri::WindowEvent::CloseRequested { api, .. } =>{
             api.prevent_close();
             tauri::api::dialog::confirm(
-              Some(&event.window()), "关闭", "确定退出Intelligent Audit Tools?",
+              Some(&event.window()), "Intelligent Audit Tools", "确定退出?",
               move| answer|{
                 if answer {
                     exit(1);

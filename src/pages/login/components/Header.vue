@@ -2,7 +2,7 @@
   <header class="login-header">
     <logo-full-icon class="logo" />
     <div class="operations-container">
-      <t-button theme="default" shape="square" variant="text" @click="navToGitHub">
+      <!-- <t-button theme="default" shape="square" variant="text" @click="navToGitHub">
         <t-icon name="logo-github" class="icon" />
       </t-button>
       <t-button theme="default" shape="square" variant="text" @click="navToHelper">
@@ -10,7 +10,7 @@
       </t-button>
       <t-button theme="default" shape="square" variant="text" @click="toggleSettingPanel">
         <t-icon name="setting" class="icon" />
-      </t-button>
+      </t-button> -->
     </div>
   </header>
 </template>

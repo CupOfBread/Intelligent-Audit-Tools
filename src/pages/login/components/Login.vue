@@ -98,7 +98,7 @@ const userStore = useUserStore();
 
 const INITIAL_DATA = {
   phone: '',
-  account: 'AIT001',
+  account: 'IAT001',
   password: '',
   verifyCode: '',
   checked: false,

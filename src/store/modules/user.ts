@@ -24,7 +24,7 @@ export const useUserStore = defineStore('user', {
         // 登录请求流程
         console.log(`用户信息:`, userInfo);
         const { account, password } = userInfo;
-        if (account === 'AIT001' && password === 'Jnj12345') {
+        if (account === 'IAT001' && password === 'Jnj12345') {
           return {
             code: 200,
             message: '登录成功',
