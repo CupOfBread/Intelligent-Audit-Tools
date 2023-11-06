@@ -15,11 +15,21 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { emit, listen } from '@tauri-apps/api/event';
+import { setup } from 'mockjs';
+import { onMounted } from 'vue';
+
 import Announcement from './components/Announcement.vue';
 import MiddleChart from './components/MiddleChart.vue';
 import OutputOverview from './components/OutputOverview.vue';
 import RankList from './components/RankList.vue';
 import TopPanel from './components/TopPanel.vue';
+
+onMounted(() => {
+  const unlisten = listen<string>('close', (event) => {
+    console.log('close');
+  });
+});
 </script>
 
 <style scoped>

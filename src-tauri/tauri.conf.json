@@ -8,11 +8,15 @@
   },
   "package": {
     "productName": "IntelligentAuditTools",
-    "version": "0.2.3"
+    "version": "0.2.4"
   },
   "tauri": {
     "allowlist": {
       "all": true
+    },
+    "systemTray":{
+      "iconPath": "icons/32x32.png",
+      "iconAsTemplate": true
     },
     "bundle": {
       "active": true,
@@ -57,7 +61,13 @@
       "csp": null
     },
     "updater": {
-      "active": false
+      "active": true,
+      "endpoints": ["https://github.com/CupOfBread/Intelligent-Audit-Tools/releases/download/updater/update.json"],
+      "dialog": true,
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDZENUM5MDhGQTczNTBCRDUKUldUVkN6V25qNUJjYlJtL0YwUStpTDM0emd1QjFQQU1qSEFaNjlLUTYwQnkxVTBhRzNwRklJN2kK",
+      "windows": {
+        "installMode": "passive"
+      }
     },
     "windows": [
       {
@@ -67,9 +77,8 @@
         "resizable": true,
         "title": "Intelligent Audit Tools",
         "visible": false,
-        "alwaysOnTop": true,
-        "y": 16,
-        "x": 16
+        "center": true,
+        "alwaysOnTop": true
       },
       {
         "fullscreen": false,
