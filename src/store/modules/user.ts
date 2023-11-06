@@ -21,8 +21,6 @@ export const useUserStore = defineStore('user', {
   actions: {
     async login(userInfo: Record<string, unknown>) {
       const mockLogin = async (userInfo: Record<string, unknown>) => {
-        // 登录请求流程
-        console.log(`用户信息:`, userInfo);
         const { account, password } = userInfo;
         if (account === 'IAT001' && password === 'Jnj12345') {
           return {
