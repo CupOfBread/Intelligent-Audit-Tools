@@ -1,6 +1,6 @@
 [package]
 name = "app"
-version = "0.2"
+version = "0.2.5"
 description = "IntelligentAuditTools"
 authors = ["Cup_Of_Bread"]
 license = ""

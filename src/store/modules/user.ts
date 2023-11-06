@@ -10,7 +10,8 @@ const InitUserInfo: UserInfo = {
 
 export const useUserStore = defineStore('user', {
   state: () => ({
-    token: '', // 默认token不走权限
+    token: '', // 默认token不走权限,
+    isRememberMe: false,
     userInfo: { ...InitUserInfo },
   }),
   getters: {

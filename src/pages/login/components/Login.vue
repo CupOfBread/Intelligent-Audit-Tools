@@ -34,8 +34,8 @@
       </t-form-item>
 
       <div class="check-container remember-pwd">
-        <t-checkbox>{{ $t('pages.login.remember') }}</t-checkbox>
-        <span class="tip">{{ $t('pages.login.forget') }}</span>
+        <t-checkbox :on-change="isRememberMeChange">{{ $t('pages.login.remember') }}</t-checkbox>
+        <t-link theme="primary" @click="forget">{{ $t('pages.login.forget') }}</t-link>
       </div>
     </template>
 
@@ -112,6 +112,7 @@ const FORM_RULES: Record<string, FormRule[]> = {
 };
 
 const type = ref('password');
+const isRememberMe = ref(false);
 
 const form = ref<FormInstanceFunctions>();
 const formData = ref({ ...INITIAL_DATA });
@@ -126,20 +127,20 @@ const switchType = (val: string) => {
 const router = useRouter();
 const route = useRoute();
 
-/**
- * 发送验证码
- */
-const sendCode = () => {
-  form.value.validate({ fields: ['phone'] }).then((e) => {
-    if (e === true) {
-      handleCounter();
-    }
-  });
+const isRememberMeChange = (checked: boolean, context: { e: Event }) => {
+  isRememberMe.value = checked;
+};
+
+const forget = () => {
+  MessagePlugin.error('BYD，还敢忘记密码？别用了！');
 };
 
 const onSubmit = async (ctx: SubmitContext) => {
   if (ctx.validateResult === true) {
     try {
+      if (isRememberMe.value) {
+        localStorage.setItem('isRememberMe', 'true');
+      }
       await userStore.login(formData.value);
       let permissionGranted = await isPermissionGranted();
       if (!permissionGranted) {

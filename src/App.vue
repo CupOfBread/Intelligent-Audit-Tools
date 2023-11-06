@@ -40,7 +40,9 @@ const closeExitDialog = () => {
   showExitDialog.value = false;
 };
 const exitApplication = async () => {
-  userStore.logout();
+  if (localStorage.getItem('isRememberMe') !== 'true') {
+    userStore.logout();
+  }
   await exit(1);
 };
 </script>
