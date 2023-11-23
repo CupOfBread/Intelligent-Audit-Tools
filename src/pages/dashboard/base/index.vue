@@ -1,8 +1,11 @@
 <template>
   <div>
     <announcement />
-    <top-panel class="row-container" />
-    <middle-chart class="row-container" />
+    <software-info />
+    <system-info />
+
+    <!-- <top-panel class="row-container" /> -->
+    <!-- <middle-chart class="row-container" /> -->
     <!-- <rank-list class="row-container" /> -->
     <!-- <output-overview class="row-container" /> -->
   </div>
@@ -22,6 +25,8 @@ import Announcement from './components/Announcement.vue';
 import MiddleChart from './components/MiddleChart.vue';
 import OutputOverview from './components/OutputOverview.vue';
 import RankList from './components/RankList.vue';
+import SoftwareInfo from './components/SoftwareInfo.vue';
+import SystemInfo from './components/SystemInfo.vue';
 import TopPanel from './components/TopPanel.vue';
 </script>
 

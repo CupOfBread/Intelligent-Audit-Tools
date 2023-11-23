@@ -24,7 +24,7 @@ export default [
         component: () => import('@/pages/dashboard/base/index.vue'),
         meta: {
           title: {
-            zh_CN: '概览仪表盘',
+            zh_CN: '仪表盘',
             en_US: 'Overview',
           },
         },
