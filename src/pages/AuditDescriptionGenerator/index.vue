@@ -1,36 +1,47 @@
 <template>
-  <t-card title="一键生成审计说明" description="Audit Description Generator" header-bordered>
-    <template #actions>
-      <t-link theme="primary" @click="downloadTemplate">示例下载</t-link>
-    </template>
-    <t-space direction="vertical">
-      <t-form colon prevent-submit-default show-error-message>
-        <t-form-item label="选择文件" name="tel">
-          <div style="width: 350px">
-            <t-upload
-              v-model="files"
-              action="https://service-bv448zsw-1257786608.gz.apigw.tencentcs.com/api/upload-demo"
-              :abridge-name="[8, 6]"
-              :auto-upload="false"
-              theme="file-input"
-              placeholder="未选择文件"
-              @change="handleFileSelect"
-            ></t-upload>
-          </div>
-        </t-form-item>
-        <t-form-item>
-          <t-space>
-            <t-button theme="primary" variant="outline" @click="handleAnalyse">提交分析</t-button>
-            <t-button theme="default" variant="base" @click="handleReset">重置</t-button>
-          </t-space>
-        </t-form-item>
-        <t-divider></t-divider>
-        <t-button v-show="exportFlag" theme="success" size="large" variant="outline" @click="exportExcel"
-          >导出分析文件</t-button
-        >
-      </t-form>
-    </t-space>
-  </t-card>
+  <t-watermark
+    is-repeat
+    :removable="false"
+    :watermark-content="{ text: 'IA Tools' }"
+    :y="120"
+    :x="80"
+    :width="120"
+    :height="60"
+    :z-index="1000"
+  >
+    <t-card title="一键生成审计说明" description="Audit Description Generator" header-bordered>
+      <template #actions>
+        <t-link theme="primary" @click="downloadTemplate">示例下载</t-link>
+      </template>
+      <t-space direction="vertical">
+        <t-form colon prevent-submit-default show-error-message>
+          <t-form-item label="选择文件" name="tel">
+            <div style="width: 350px">
+              <t-upload
+                v-model="files"
+                action="https://service-bv448zsw-1257786608.gz.apigw.tencentcs.com/api/upload-demo"
+                :abridge-name="[8, 6]"
+                :auto-upload="false"
+                theme="file-input"
+                placeholder="未选择文件"
+                @change="handleFileSelect"
+              ></t-upload>
+            </div>
+          </t-form-item>
+          <t-form-item>
+            <t-space>
+              <t-button theme="primary" variant="outline" @click="handleAnalyse">提交分析</t-button>
+              <t-button theme="default" variant="base" @click="handleReset">重置</t-button>
+            </t-space>
+          </t-form-item>
+          <t-divider></t-divider>
+          <t-button v-show="exportFlag" theme="success" size="large" variant="outline" @click="exportExcel"
+            >导出分析文件</t-button
+          >
+        </t-form>
+      </t-space>
+    </t-card>
+  </t-watermark>
 </template>
 
 <script setup lang="ts">

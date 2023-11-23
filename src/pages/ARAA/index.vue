@@ -1,42 +1,58 @@
 <template>
-  <t-card title="账龄分析" description="Account Receivable Age Analysis" header-bordered>
-    <template #actions>
-      <t-link theme="primary" @click="handleTemplateDownload">模板下载</t-link>
-    </template>
-    <t-space direction="vertical">
-      <t-form colon prevent-submit-default show-error-message>
-        <t-form-item label="匹配项" name="name">
-          <t-select v-model="matchType" default-value="match3" @change="handleFileSelect">
-            <t-option key="apple" label="公司主体、客户" value="match2" />
-            <t-option key="banana" label="公司主体、客户、款项性质" value="match3" />
-          </t-select>
-        </t-form-item>
-        <t-form-item label="选择文件" name="tel">
-          <div style="width: 350px">
-            <t-upload
-              v-model="files"
-              action="https://service-bv448zsw-1257786608.gz.apigw.tencentcs.com/api/upload-demo"
-              :abridge-name="[8, 6]"
-              :auto-upload="false"
-              theme="file-input"
-              placeholder="未选择文件"
-              @change="handleFileSelect"
-            ></t-upload>
-          </div>
-        </t-form-item>
-        <t-form-item>
-          <t-space>
-            <t-button theme="primary" variant="outline" @click="handleAnalyse">提交分析</t-button>
-            <t-button theme="default" variant="base" @click="handleReset">重置</t-button>
-          </t-space>
-        </t-form-item>
-        <t-divider></t-divider>
-        <t-button v-show="currentYearIds.length > 0" theme="success" size="large" variant="outline" @click="exportExcel"
-          >导出分析文件</t-button
-        >
-      </t-form>
-    </t-space>
-  </t-card>
+  <t-watermark
+    is-repeat
+    :removable="false"
+    :watermark-content="{ text: 'IA Tools' }"
+    :y="120"
+    :x="80"
+    :width="120"
+    :height="60"
+    :z-index="1000"
+  >
+    <t-card title="账龄分析" description="Account Receivable Age Analysis" header-bordered>
+      <template #actions>
+        <t-link theme="primary" @click="handleTemplateDownload">模板下载</t-link>
+      </template>
+      <t-space direction="vertical">
+        <t-form colon prevent-submit-default show-error-message>
+          <t-form-item label="匹配项" name="name">
+            <t-select v-model="matchType" default-value="match3" @change="handleFileSelect">
+              <t-option key="apple" label="公司主体、客户" value="match2" />
+              <t-option key="banana" label="公司主体、客户、款项性质" value="match3" />
+            </t-select>
+          </t-form-item>
+          <t-form-item label="选择文件" name="tel">
+            <div style="width: 350px">
+              <t-upload
+                v-model="files"
+                action="https://service-bv448zsw-1257786608.gz.apigw.tencentcs.com/api/upload-demo"
+                :abridge-name="[8, 6]"
+                :auto-upload="false"
+                theme="file-input"
+                placeholder="未选择文件"
+                @change="handleFileSelect"
+              ></t-upload>
+            </div>
+          </t-form-item>
+          <t-form-item>
+            <t-space>
+              <t-button theme="primary" variant="outline" @click="handleAnalyse">提交分析</t-button>
+              <t-button theme="default" variant="base" @click="handleReset">重置</t-button>
+            </t-space>
+          </t-form-item>
+          <t-divider></t-divider>
+          <t-button
+            v-show="currentYearIds.length > 0"
+            theme="success"
+            size="large"
+            variant="outline"
+            @click="exportExcel"
+            >导出分析文件</t-button
+          >
+        </t-form>
+      </t-space>
+    </t-card>
+  </t-watermark>
 </template>
 
 <script setup lang="ts">

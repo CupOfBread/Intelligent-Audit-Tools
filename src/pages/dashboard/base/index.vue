@@ -1,13 +1,24 @@
 <template>
   <div>
-    <announcement />
-    <software-info />
-    <system-info />
-
     <!-- <top-panel class="row-container" /> -->
     <!-- <middle-chart class="row-container" /> -->
     <!-- <rank-list class="row-container" /> -->
     <!-- <output-overview class="row-container" /> -->
+    <t-watermark
+      is-repeat
+      :removable="false"
+      :watermark-content="{ text: 'IA Tools' }"
+      :y="120"
+      :x="80"
+      :width="120"
+      :height="60"
+      :z-index="1000"
+      :alpha="80"
+    >
+      <announcement />
+      <software-info />
+      <system-info />
+    </t-watermark>
   </div>
 </template>
 
