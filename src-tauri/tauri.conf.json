@@ -12,7 +12,10 @@
   },
   "tauri": {
     "allowlist": {
-      "all": true
+      "all": true,
+      "http": {
+        "scope": ["https://github.com/CupOfBread/Intelligent-Audit-Tools/*"]
+      }
     },
     "systemTray":{
       "iconPath": "icons/32x32.png",
