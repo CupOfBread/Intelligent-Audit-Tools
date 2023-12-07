@@ -4,7 +4,7 @@ export default {
   existAccount: '已有账号?',
   createAccount: '注册新账号',
   remember: '记住账号',
-  forget: '忘记账号',
+  forget: '忘记密码',
   signIn: '登录',
   register: '注册',
   refresh: '刷新',
