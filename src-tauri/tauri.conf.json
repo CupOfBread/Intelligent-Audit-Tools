@@ -3,7 +3,7 @@
   "build": {
     "beforeBuildCommand": "npm run build && copy splash\\* dist",
     "beforeDevCommand": "npm run dev",
-    "devPath": "http://localhost:6002",
+    "devPath": "http://localhost:3002",
     "distDir": "../dist"
   },
   "package": {
